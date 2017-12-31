@@ -7,8 +7,9 @@ const VideoList = (props) => {
     //define a key for the item based on the api, youtube search api has an etag for each video using key as property
     return (
       <VideoListItem
-       onVideoClick={props.onVideoSelect}
-       key={video.etag} video={video}/>
+       onVideoSelect={props.onVideoSelect}
+       key={video.etag}
+       video={video} />
     );
   });
   return (
