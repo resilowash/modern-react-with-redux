@@ -7,6 +7,7 @@ import YTSearch from 'youtube-api-search';
 //local imports relative path to the file we are importing from
 import SearchBar from './components/search_bar';
 import VideoList from './components/video_list';
+import VideoDetail from './components/video_detail';
 
 // I don't like storing this here... Security risk..  API key from google for youtube.
 const API_KEY='AIzaSyDrnzQFNaoNVj9pZnmhY7XL-7PranyuNos';
@@ -24,6 +25,7 @@ class App extends Component {
     this.state = { videos: [] };
 
     YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
+      console.log(videos);
       this.setState({ videos });
       //with ES6 the syntax this.setState({videos: videos}) can be simply this.setState({ videos }). Syntactic sugar for key value pair that is the same.
     });
@@ -32,6 +34,7 @@ class App extends Component {
   render() {
     return (<div>
       <SearchBar />
+      <VideoDetail video={this.state.videos[0]}/>
       <VideoList videos={this.state.videos}/>
     </div>);
   }
