@@ -1,3 +1,4 @@
+import _ from 'lodash';
 // get react from installed modules and allow access to it in this file
 import React, { Component } from 'react';
 //need to import react-dom in order to render to the DOM
@@ -43,8 +44,10 @@ class App extends Component {
   }
 
   render() {
+    //debounce is a lodash function that converts a passed function to a function that can only be called in x amount of milliseconds.
+    const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300)
     return (<div>
-      <SearchBar onSearchTermChange={term => this.videoSearch(term)}/>
+      <SearchBar onSearchTermChange={videoSearch}/>
       <VideoDetail video={this.state.selectedVideo}/>
       <VideoList
       onVideoSelect={selectedVideo => this.setState({selectedVideo}) }

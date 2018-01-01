@@ -5,7 +5,7 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { term: 'Starting Value' };
+    this.state = { term: '' };
   }
 
   //render must be implemented when you extend React.Component
@@ -21,7 +21,7 @@ class SearchBar extends Component {
 
   onInputChange(term) {
     this.setState({term});
-    this.props.onSearchTermChange(term); 
+    this.props.onSearchTermChange(term);
   }
 
 
