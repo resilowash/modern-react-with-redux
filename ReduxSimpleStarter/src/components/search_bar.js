@@ -11,12 +11,17 @@ class SearchBar extends Component {
   //render must be implemented when you extend React.Component
   render() {
     return (
-      <div>
+      <div className="search-bar">
         <input
           value={this.state.term}
-          onChange={(event) => this.setState({term: event.target.value})} />
+          onChange={(event) => this.onInputChange(event.target.value) } />
       </div>
     );
+  }
+
+  onInputChange(term) {
+    this.setState({term});
+    this.props.onSearchTermChange(term); 
   }
 
 
