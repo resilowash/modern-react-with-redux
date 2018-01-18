@@ -22,7 +22,7 @@ export class SearchBar extends Component {
     event.preventDefault(); //don't submit the form
 
     //fetch weather data
-    console.log("CITY: ", this.state.term);
+    //console.log("CITY: ", this.state.term);
     this.props.fetchWeather(this.state.term);
     this.setState({term: ''});
   }
